@@ -10,11 +10,14 @@ import UIKit
 
 class ViewController: UIViewController, UIImagePickerControllerDelegate,
 UINavigationControllerDelegate{
-
+    
+    @IBOutlet weak var shareButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
     @IBOutlet weak var imagePickerView: UIImageView!
     @IBOutlet weak var cameraButton: UIButton!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomTextField: UITextField!
+    
     var memedImage: UIImage?
     
     let textFieldDelegate = TextFieldDelegate()
@@ -39,11 +42,16 @@ UINavigationControllerDelegate{
         topTextField.delegate = textFieldDelegate
         bottomTextField.delegate = textFieldDelegate
         
+        
         subscribeToKeyboardNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        print("View will appear")
        cameraButton.isEnabled = UIImagePickerController.isSourceTypeAvailable(.camera)
+        let enable = imagePickerView.image != nil
+        shareButton.isEnabled = enable
+        saveButton.isEnabled = enable
     }
     
     override func viewWillDisappear(_ animated: Bool){
@@ -65,10 +73,18 @@ UINavigationControllerDelegate{
         present(pickerController, animated: true, completion: nil)
     }
     
+    @IBAction func shareImage(_ sender: Any) {
+        save()
+        let image = [memedImage! ]
+        let shareController = UIActivityViewController(activityItems: image, applicationActivities: nil)
+        present(shareController, animated: true, completion: nil)
+    }
+    
     @IBAction func saveImage(_ sender: Any) {
         print("saving")
         save()
     }
+    
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
        
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage{
@@ -116,6 +132,7 @@ UINavigationControllerDelegate{
     //Saves screenshot into Meme
     func save(){
         let meme = Meme(bottomText: bottomTextField.text!, topText: topTextField.text!, originalImage: imagePickerView.image!, memedImage: genMemedImage())
+        memedImage = meme.memedImage
         UIImageWriteToSavedPhotosAlbum(meme.memedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
 //        if let data = UIImagePNGRepresentation(meme.memedImage){
 //            let fileName = getDocumentsDirectory().appendingPathComponent("meme.png")
@@ -124,7 +141,7 @@ UINavigationControllerDelegate{
     }
     
     func image(_ image: UIImage, didFinishSavingWithError error: Error?, contextInfo: UnsafeRawPointer) {
-        if let e = error{
+        if error != nil{
             print("error exists")
         }else{
             print("no error")
@@ -141,6 +158,7 @@ UINavigationControllerDelegate{
     //generates memedImage from screen
     func genMemedImage() -> UIImage{
         //hide toolbar and navbar
+        navigationController?.setNavigationBarHidden(true, animated: true)
         
         UIGraphicsBeginImageContext(self.view.frame.size)
         view.drawHierarchy(in: self.view.frame, afterScreenUpdates: true)
@@ -148,6 +166,7 @@ UINavigationControllerDelegate{
         UIGraphicsEndImageContext()
         
         //show toolbar and navbar
+        navigationController?.setNavigationBarHidden(false, animated: true)
         
         return memedImage
     }

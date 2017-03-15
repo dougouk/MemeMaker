@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3702AD061E6A3997004DB7B9 /* TextFieldDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3702AD051E6A3997004DB7B9 /* TextFieldDelegate.swift */; };
+		3702AD091E6CA01B004DB7B9 /* Meme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3702AD081E6CA01B004DB7B9 /* Meme.swift */; };
 		37EF8C7E1E69FB9200CED4EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF8C7D1E69FB9200CED4EA /* AppDelegate.swift */; };
 		37EF8C801E69FB9200CED4EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37EF8C7F1E69FB9200CED4EA /* ViewController.swift */; };
 		37EF8C831E69FB9200CED4EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 37EF8C811E69FB9200CED4EA /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3702AD051E6A3997004DB7B9 /* TextFieldDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TextFieldDelegate.swift; sourceTree = "<group>"; };
+		3702AD081E6CA01B004DB7B9 /* Meme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Meme.swift; sourceTree = "<group>"; };
 		37EF8C7A1E69FB9200CED4EA /* PickImage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PickImage.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37EF8C7D1E69FB9200CED4EA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		37EF8C7F1E69FB9200CED4EA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -35,6 +39,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3702AD041E6A398A004DB7B9 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				3702AD051E6A3997004DB7B9 /* TextFieldDelegate.swift */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		3702AD071E6CA00D004DB7B9 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				3702AD081E6CA01B004DB7B9 /* Meme.swift */,
+			);
+			name = Structs;
+			sourceTree = "<group>";
+		};
 		37EF8C711E69FB9200CED4EA = {
 			isa = PBXGroup;
 			children = (
@@ -54,6 +74,8 @@
 		37EF8C7C1E69FB9200CED4EA /* PickImage */ = {
 			isa = PBXGroup;
 			children = (
+				3702AD071E6CA00D004DB7B9 /* Structs */,
+				3702AD041E6A398A004DB7B9 /* Delegates */,
 				37EF8C7D1E69FB9200CED4EA /* AppDelegate.swift */,
 				37EF8C7F1E69FB9200CED4EA /* ViewController.swift */,
 				37EF8C811E69FB9200CED4EA /* Main.storyboard */,
@@ -137,7 +159,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				37EF8C801E69FB9200CED4EA /* ViewController.swift in Sources */,
+				3702AD091E6CA01B004DB7B9 /* Meme.swift in Sources */,
 				37EF8C7E1E69FB9200CED4EA /* AppDelegate.swift in Sources */,
+				3702AD061E6A3997004DB7B9 /* TextFieldDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -299,6 +323,7 @@
 				37EF8C8E1E69FB9200CED4EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

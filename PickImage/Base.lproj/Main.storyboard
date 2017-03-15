@@ -40,13 +40,23 @@
                                             </connections>
                                         </button>
                                     </barButtonItem>
-                                    <barButtonItem style="plain" id="UhQ-N0-X3x">
+                                    <barButtonItem style="plain" id="UhQ-N0-X3x" userLabel="Save">
                                         <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="0H5-Hc-VQ3">
                                             <rect key="frame" x="147" y="7" width="46" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Save"/>
                                             <connections>
                                                 <action selector="saveImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Psh-08-wyy"/>
+                                            </connections>
+                                        </button>
+                                    </barButtonItem>
+                                    <barButtonItem style="plain" id="OoK-AP-LUW" userLabel="Share">
+                                        <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="smB-uf-KJF">
+                                            <rect key="frame" x="203" y="7" width="46" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <state key="normal" title="Share"/>
+                                            <connections>
+                                                <action selector="shareImage:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2VH-OY-K9T"/>
                                             </connections>
                                         </button>
                                     </barButtonItem>
@@ -97,6 +107,8 @@
                         <outlet property="bottomTextField" destination="SXB-nL-r00" id="K70-fR-om8"/>
                         <outlet property="cameraButton" destination="3y3-Gh-fql" id="iCa-oV-ZDM"/>
                         <outlet property="imagePickerView" destination="VqZ-iX-hZI" id="oox-YK-9G4"/>
+                        <outlet property="saveButton" destination="0H5-Hc-VQ3" id="i9v-zU-1pP"/>
+                        <outlet property="shareButton" destination="smB-uf-KJF" id="Z3S-2P-bdg"/>
                         <outlet property="topTextField" destination="OXO-3Z-xRr" id="bpw-b9-uAu"/>
                     </connections>
                 </viewController>
