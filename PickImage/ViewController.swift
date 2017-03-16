@@ -75,9 +75,19 @@ UINavigationControllerDelegate{
     
     @IBAction func shareImage(_ sender: Any) {
         save()
-        let image = [memedImage! ]
+        let image = [genMemedImage() ]
         let shareController = UIActivityViewController(activityItems: image, applicationActivities: nil)
         present(shareController, animated: true, completion: nil)
+    }
+    
+    func shareHandler(activityType: UIActivityType?, completed: Bool, returnedItems : [Any]?, activityError: Error?){
+        if completed{
+            print("Completed")
+            save()
+        }
+        if let error = activityError{
+            print(error.localizedDescription)
+        }
     }
     
     @IBAction func saveImage(_ sender: Any) {
@@ -132,7 +142,6 @@ UINavigationControllerDelegate{
     //Saves screenshot into Meme
     func save(){
         let meme = Meme(bottomText: bottomTextField.text!, topText: topTextField.text!, originalImage: imagePickerView.image!, memedImage: genMemedImage())
-        memedImage = meme.memedImage
         UIImageWriteToSavedPhotosAlbum(meme.memedImage, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
 //        if let data = UIImagePNGRepresentation(meme.memedImage){
 //            let fileName = getDocumentsDirectory().appendingPathComponent("meme.png")
